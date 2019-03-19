@@ -6,6 +6,11 @@
   "scripts": {
     "start": "parcel index.html --open"
   },
+  "dependencies": {
+    "chrox": "^1.0.3",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/plugin-proposal-class-properties": "^7.3.4",
