@@ -1,2 +1,2 @@
 # chrox
-State with Hooks, simple but delicate.
+State with hooks, simple but delicate.
