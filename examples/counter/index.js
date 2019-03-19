@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { render } from 'react-dom'
-import createChrox from '../../src/chrox'
+import createChrox from '../../dist/chrox'
 import { countReducer, initialState } from './reducer'
 
 const { Context, Provider } = createChrox(countReducer, initialState)

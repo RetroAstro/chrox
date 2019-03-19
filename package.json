@@ -6,19 +6,22 @@
   "author": "RetroAstro",
   "license": "MIT",
   "scripts": {
-    "lint-fix": "eslint examples/**/*.js --fix && eslint src/chrox.js --fix"
+    "lint-fix": "eslint examples/**/*.js --fix",
+    "build": "tsc -p tsconfig.json"
   },
   "dependencies": {
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
   "devDependencies": {
+    "@types/react": "^16.8.8",
     "eslint": "^5.15.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-react": "^7.11.1"
+    "typescript": "^3.3.3333"
   }
 }
