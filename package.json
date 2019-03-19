@@ -1,0 +1,24 @@
+{
+  "name": "chrox",
+  "version": "1.0.0",
+  "description": "State with Hooks, simple but delicate.",
+  "main": "src/chrox.js",
+  "author": "RetroAstro",
+  "license": "MIT",
+  "scripts": {
+    "lint-fix": "eslint examples/**/*.js --fix && eslint src/chrox.js --fix"
+  },
+  "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-react": "^7.11.1"
+  }
+}
