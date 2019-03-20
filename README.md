@@ -4,7 +4,7 @@
 ## Installation
 
 ```
-npm install chrox
+npm i chrox -S
 ```
 
 ## Example
