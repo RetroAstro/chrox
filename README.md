@@ -46,15 +46,15 @@ const Status = () => {
   )
 }
 
-const Decrement = ({ context }) => {
-  const dispatch = useContext(context)
+const Decrement = () => {
+  const dispatch = useContext(Context.dispatch)
   return (
     <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
   )
 }
 
-const Increment = ({ context }) => {
-  const dispatch = useContext(context)
+const Increment = () => {
+  const dispatch = useContext(Context.dispatch)
   return (
     <button onClick={() => dispatch({ type: 'increment' })}>+</button>
   )
@@ -62,9 +62,9 @@ const Increment = ({ context }) => {
 
 const App = () => (
   <>
-    <Decrement context={Context.dispatch} />
+    <Decrement />
     <Status />
-    <Increment context={Context.dispatch} />
+    <Increment />
   </>
 )
 
