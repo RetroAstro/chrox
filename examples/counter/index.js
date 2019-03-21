@@ -5,31 +5,34 @@ import { countReducer, initialState } from './reducer'
 
 const { Context, Provider } = createChrox(countReducer, initialState)
 
+const Status = () => {
+  const state = useContext(Context.state)
+  return (
+    <span>{state.count}</span>
+  )
+}
+
 const Decrement = ({ context }) => {
-  const { dispatch } = useContext(context)
+  const dispatch = useContext(context)
   return (
     <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
   )
 }
 
 const Increment = ({ context }) => {
-  const { dispatch } = useContext(context)
+  const dispatch = useContext(context)
   return (
     <button onClick={() => dispatch({ type: 'increment' })}>+</button>
   )
 }
 
-const App = () => {
-  const { state } = useContext(Context)
-
-  return (
-   <>
-     <Decrement context={Context} />
-     <span>{state.count}</span>
-     <Increment context={Context} />
-   </>
-  )
-}
+const App = () => (
+  <>
+    <Decrement context={Context.dispatch} />
+    <Status />
+    <Increment context={Context.dispatch} />
+  </>
+)
 
 render(
   <Provider>

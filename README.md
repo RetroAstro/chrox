@@ -31,7 +31,7 @@ export const countReducer = (state, action) => {
 
 Then we can make our own counter with no effort.
 
-```js
+```jsx
 import React, { useContext } from 'react'
 import { render } from 'react-dom'
 import createChrox from 'chrox'
@@ -39,31 +39,34 @@ import { countReducer, initialState } from './reducer'
 
 const { Context, Provider } = createChrox(countReducer, initialState)
 
+const Status = () => {
+  const state = useContext(Context.state)
+  return (
+    <span>{state.count}</span>
+  )
+}
+
 const Decrement = ({ context }) => {
-  const { dispatch } = useContext(context)
+  const dispatch = useContext(context)
   return (
     <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
   )
 }
 
 const Increment = ({ context }) => {
-  const { dispatch } = useContext(context)
+  const dispatch = useContext(context)
   return (
     <button onClick={() => dispatch({ type: 'increment' })}>+</button>
   )
 }
 
-const App = () => {
-  const { state } = useContext(Context)
-
-  return (
-   <>
-     <Decrement context={Context} />
-     <span>{state.count}</span>
-     <Increment context={Context} />
-   </>
-  )
-}
+const App = () => (
+  <>
+    <Decrement context={Context.dispatch} />
+    <Status />
+    <Increment context={Context.dispatch} />
+  </>
+)
 
 render(
   <Provider>
@@ -72,6 +75,10 @@ render(
   document.getElementById('root')
 )
 ```
+
+**Note :**  
+
+Since our state and dispatch are separated, we can easily get the performance optimization.
 
 ## License
 

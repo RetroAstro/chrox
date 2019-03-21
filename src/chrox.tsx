@@ -4,25 +4,28 @@ type ProviderProps = {
   children: React.ReactNode
 }
 
-type ContextProps = {
-  state?: object
-  dispatch?: (prop: object) => void
-}
-
 export default function createChrox (
   reducer: (state: object, action: object) => object, 
   initialState: object
 ) {
-  const Context = React.createContext<ContextProps>({})
+  const StateContext = React.createContext<object>({})
+  const DispatchContext = React.createContext<React.Dispatch<object>>(() => {})
 
   const Provider: React.FC<ProviderProps> = props => {
     const [state, dispatch] = React.useReducer(reducer, initialState)
 
     return (
-      <Context.Provider value={{ state, dispatch }}>
-        {props.children}
-      </Context.Provider>
+      <DispatchContext.Provider value={dispatch}>
+         <StateContext.Provider value={state}>
+            {props.children}
+         </StateContext.Provider>
+      </DispatchContext.Provider>
     )
+  }
+
+  const Context = {
+    state: StateContext,
+    dispatch: DispatchContext
   }
 
   return {
